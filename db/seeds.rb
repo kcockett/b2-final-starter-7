@@ -88,8 +88,8 @@ Transaction.destroy_all
   @discount_4 = Discount.create!(merchant_id: @merchant1.id, percentage: "5", threshold: 5)
   @discounts = [@discount_1, @discount_2, @discount_3, @discount_4]
 
-elsif Rails.env.production?
-  #Rake::Task["csv_load:all"].invoke
-else
-  # If not development or production
-end
+# elsif Rails.env.production?
+#   Rake::Task["csv_load:all"].invoke
+# else
+#   # If not development or production
+# end
