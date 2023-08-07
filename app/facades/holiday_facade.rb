@@ -1,3 +1,5 @@
+require 'httparty'
+
 class HolidayFacade
   BASE_URL = 'https://date.nager.at/api/v3/NextPublicHolidays/us'
 
@@ -7,9 +9,8 @@ class HolidayFacade
   end
 
   def self.fetch_holidays
-    uri = URI(BASE_URL)
-    response = Net::HTTP.get(uri)
-    JSON.parse(response)
+    response = HTTParty.get(BASE_URL)
+    response.parsed_response
   end
 
   def self.parse_holidays(response)
